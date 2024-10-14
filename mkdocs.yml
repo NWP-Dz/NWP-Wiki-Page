@@ -29,7 +29,7 @@ nav:
           - Dust Modelling: Physics/Dust.md
           - Turbulence: Physics/turb.md
       - Radiation:
-          - Ecrad: Radiation/ecrad.md
+          - Ecrad: Radiation/Ecrad.md
       - RESTOR: RESTOR/restor.md
       - Seasonal Forecast: Seasonal_Forecast/seasonalforecast.md
       - Control & Verification:
