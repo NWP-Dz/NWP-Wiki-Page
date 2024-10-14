@@ -1,0 +1,64 @@
+site_name: ONM-NWP Wiki Page
+site_description: Documentation for The Algerian NWP Team
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview:
+          - Content: Overview/Content.md
+          - File Formats: Overview/FileFormats.md
+          - Source: Overview/Source.md
+  - NWP Manuals:
+      - Forecast Model:
+          - Atmospheric:
+              - ALADIN: ForecastModel/Atmospheric/ALADIN.md
+              - AROME: ForecastModel/Atmospheric/AROME.md
+              - AROME_Dust: ForecastModel/Atmospheric/AROME_Dust.md
+          - Marine:
+              - WaveWatch III: ForecastModel/Marine/ww3.md
+      - Cycles:
+          - Cycle 43: Cycles/cy43.md
+          - Cycle 46: Cycles/cy46.md
+      - Data Assimilation:
+          - Surface:
+              - CANARI: DataAssimilation/Surface/CANARI.md
+          - Screening: DataAssimilation/Screening.md
+      - Surface:
+          - SurFex: Surface/SurFex.md
+      - Physics:
+          - Visibility: Physics/Visib.md
+          - Dust Modelling: Physics/Dust.md
+          - Turbulence: Physics/turb.md
+      - Radiation:
+          - Ecrad: Radiation/ecrad.md
+      - RESTOR: RESTOR/restor.md
+      - Seasonal Forecast: Seasonal_Forecast/seasonalforecast.md
+      - Control & Verification:
+          - HARP: Control_&_Verification/HARP.md
+      - Visualization:
+          - EpyGram: Visualization/EPyGrAM.md
+  - About Us: about.md
+  - Contact: contact.md
+
+theme:
+  name: material  # Optional, you can change the theme if you prefer
+  language: en
+  icon:
+    logo: material/library-outline 
+  features:
+    - search.suggest
+  font:
+    text: Oswald
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+plugins:
+  - search
