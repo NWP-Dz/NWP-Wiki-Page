@@ -3,51 +3,67 @@ site_description: Documentation for The Algerian NWP Team
 nav:
   - Home: index.md
   - Getting Started:
-      - Overview:
-          - Content: Overview/Content.md
-          - File Formats: Overview/FileFormats.md
-          - Source: Overview/Source.md
-  - NWP Manuals:
-      - Forecast Model:
-          - Atmospheric:
-              - ALADIN: ForecastModel/Atmospheric/ALADIN.md
-              - AROME: ForecastModel/Atmospheric/AROME.md
-              - AROME_Dust: ForecastModel/Atmospheric/AROME_Dust.md
-          - Marine:
-              - WaveWatch III: ForecastModel/Marine/ww3.md
-      - Cycles:
-          - Cycle 43: Cycles/cy43.md
-          - Cycle 46: Cycles/cy46.md
+      - Overview: Overview/content.md 
+  - Forecast Model:
+      - Atmospheric:
+          - ARPEGE: ForecastModel/Atmospheric/ARPEGE.md
+          - ALADIN: ForecastModel/Atmospheric/ALADIN.md
+          - ALADIN Dust: ForecastModel/Atmospheric/ALADIN_Dust.md
+          - AROME: ForecastModel/Atmospheric/AROME.md
+          - AROME_Dust: ForecastModel/Atmospheric/AROME_Dust.md
+      - Marine:
+          - WaveWatch III: ForecastModel/Marine/ww3.md
+  - NWP Components:
       - Data Assimilation:
           - Surface:
-              - CANARI: DataAssimilation/Surface/CANARI.md
-          - Screening: DataAssimilation/Screening.md
-      - Surface:
-          - SurFex: Surface/SurFex.md
-      - Physics:
-          - Visibility: Physics/Visib.md
-          - Dust Modelling: Physics/Dust.md
-          - Turbulence: Physics/turb.md
-      - Radiation:
-          - Ecrad: Radiation/Ecrad.md
-      - RESTOR: RESTOR/restor.md
-      - Seasonal Forecast: Seasonal_Forecast/seasonalforecast.md
-      - Control & Verification:
-          - HARP: Control_&_Verification/HARP.md
+              - CANARI: NWP_Components/DataAssimilation/Surface/CANARI.md
+          - Screening: NWP_Components/DataAssimilation/Screening.md
+      - Physical process:
+          - Surface:
+              - SurFex: NWP_Components/Physics/Surface/SurFex.md
+          - Diagnostics:
+              - Visibility: NWP_Components/Physics/Diagnostics/Visib.md
+              - Diagnostics1: NWP_Components/Physics/Diagnostics/diag1.md
+              - Diagnostics2: NWP_Components/Physics/Diagnostics/diag2.md
+              - Diagnostics3: NWP_Components/Physics/Diagnostics/diag3.md
+          - Dust Modelling: NWP_Components/Physics/Dust/Dust.md
+          - Turbulence: NWP_Components/Physics/Turb/turb.md
+          - Radiation:
+              - Ecrad: NWP_Components/Physics/Radiation/Ecrad.md
+      - Code Architecture: NWP_Components/Code_Arch/code_arch.md
+      - Dynamics: NWP_Components/Dynamics/dyn.md
+      - Formats: NWP_Components/Formats/FileFormats.md
+      - Numerical: NWP_Components/Numerical/num.md
+  - Model Configuration:
+      - Operational Configuration:
+          - ALADIN: Model_Configuration/Operational_Configuration/ALADIN.md
+          - ALADIN Dust: Model_Configuration/Operational_Configuration/ALADIN_Dust.md
+          - AROME: Model_Configuration/Operational_Configuration/AROME.md
+      - Research & Developement Configuration:
+          - AROME_Dust: Model_Configuration/Research_Configuration/AROME_Dust.md
+  - Control & Verification:
+      - HARP: Control_&_Verification/HARP.md
+  - Seasonal Forecast: Seasonal_Forecast/seasonalforecast.md
+  - Tools:
+      - RESTOR: Tools/RESTOR/restor.md
+      - Gl: Tools/Gl/gl.md
+      - Pinuts: Tools/Pinuts/pinuts.md
+      - ClimMake: Tools/ClimMake/climmake.md
       - Visualization:
-          - EpyGram: Visualization/EPyGrAM.md
-  - About Us: about.md
+          - EpyGram: Tools/Visualization/EPyGrAM.md
+          - Grads: Tools/Visualization/grads.md
+  - Cycle Update: Cycles/cycle.md
   - Contact: contact.md
 
 theme:
-  name: material  # Optional, you can change the theme if you prefer
+  name: material # Optional, you can change the theme if you prefer
   language: en
   icon:
     logo: material/library-outline 
   features:
     - search.suggest
   font:
-    text: Oswald
+    text:   PT Sans Narrow  
   palette:
     # Palette toggle for light mode
     - scheme: default

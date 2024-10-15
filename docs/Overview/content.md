@@ -1,0 +1,7 @@
+# Overview
+
+The ONM-NWP Wiki Page serves as a comprehensive documentation hub for the Algerian Numerical Weather Prediction (NWP) team. It includes detailed guides and resources organized into various sections, each dedicated to specific aspects of the NWP process. The "Getting Started" section offers an overview to introduce users to the platform. The "Forecast Model" section covers atmospheric and marine modeling, including ALADIN, AROME, and WaveWatch III models, as well as specialized configurations like dust modeling.
+
+The "NWP Components" section dives into essential processes such as data assimilation, physical processes like surface interactions and diagnostics (e.g., visibility), and specific dynamics and numerical methods. For detailed model setup, the "Model Configuration" section distinguishes between operational and research configurations. Additionally, a "Control & Verification" section is included for validation processes like HARP, and "Seasonal Forecast" explores long-term weather predictions.
+
+Tools used by the NWP team, such as RESTOR, Pinuts, ClimMake, and visualization tools like EPyGram and GrADS, are highlighted in the "Tools" section. The page also includes "Cycle Update" for tracking model cycle changes, as well as "About Us" and "Contact" pages for team information. Designed with a clean, user-friendly theme that supports both light and dark modes, the wiki also features search functionality for easy navigation.
