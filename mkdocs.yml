@@ -23,9 +23,9 @@ nav:
               - SurFex: NWP_Components/Physics/Surface/SurFex.md
           - Diagnostics:
               - Visibility: NWP_Components/Physics/Diagnostics/Visib.md
-              - Diagnostics1: NWP_Components/Physics/Diagnostics/diag1.md
-              - Diagnostics2: NWP_Components/Physics/Diagnostics/diag2.md
-              - Diagnostics3: NWP_Components/Physics/Diagnostics/diag3.md
+              #- Diagnostics1: NWP_Components/Physics/Diagnostics/diag1.md
+              #- Diagnostics2: NWP_Components/Physics/Diagnostics/diag2.md
+              #- Diagnostics3: NWP_Components/Physics/Diagnostics/diag3.md
           - Dust Modelling: NWP_Components/Physics/Dust/Dust.md
           - Turbulence: NWP_Components/Physics/Turb/turb.md
           - Radiation:
@@ -53,6 +53,7 @@ nav:
           - EpyGram: Tools/Visualization/EPyGrAM.md
           - Grads: Tools/Visualization/grads.md
   - Cycle Update: Cycles/cycle.md
+  - Useful links: Useful_links/links.md
   - Contact: contact.md
 
 theme:

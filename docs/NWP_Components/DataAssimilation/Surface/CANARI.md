@@ -1,4 +1,4 @@
-# [Surface Data Assimilation Scheme: Canari ](@id canari)
+# Surface Data Assimilation Scheme: Canari
 
 ## Introduction
 (by Alena.Trojakova)

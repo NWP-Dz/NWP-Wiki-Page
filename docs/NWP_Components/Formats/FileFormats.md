@@ -6,22 +6,21 @@ The HARMONIE system reads and writes a number of different formats.
 
 ## FA files
 
- Default internal format input/output for HARMONIE for gridpoint, spectral and SURFEX data. GRIB is used as a way to pack data, but the grib record cannot be used as such.
+ Default internal format input/output for gridpoint, spectral and SURFEX data. GRIB is used as a way to pack data, but the grib record cannot be used as such.
 
  * The header contains information about model domain, projection, spectral truncation, extension zone, boundary zone, vertical levels. 
  * Only one date/time per file.
  * FA routines are found under `ifsaux/fa`
- * List or convert a file with [`gl`](@ref gl)
+ * List or convert a file with [Gl](../../Tools/Gl/gl.md)
  * Other listing tool [PINUTS](http://www.cnrm.meteo.fr/gmapdoc/spip.php?page=recherche&recherche=PINUTS)
 
  [Read more](http://www.cnrm.meteo.fr/gmapdoc/spip.php?page=recherche&recherche=FA+)
 
-## NETCDF
+## GRIB/GRIB2
 
- In climate mode all FA files may converted to NETCDF after the forecast run. For the conversion between FA names and NETCDF parameters check `util/gl/inc/nc_tab.h`.
+ All FA files may be converted to GRIB after the forecast run. For the conversion between FA names and GRIB parameters check [this link](https://hirlam.github.io/HarmonieSystemDocumentation/dev/ForecastModel/Outputlist/).
 
- * For the manipulation and listing of NETCDF files we refer to standard NETCDF tools.
- * NETCDF is also used as output data from some SURFEX tools.
+ * List or convert a GRIB file with [Gl](../../Tools/Gl/gl.md)
 
 
 
