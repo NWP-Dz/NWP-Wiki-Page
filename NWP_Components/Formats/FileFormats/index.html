@@ -881,69 +881,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Physics/Diagnostics/diag1/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Diagnostics1
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Physics/Diagnostics/diag2/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Diagnostics2
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Physics/Diagnostics/diag3/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Diagnostics3
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1179,9 +1116,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#netcdf" class="md-nav__link">
+  <a href="#gribgrib2" class="md-nav__link">
     <span class="md-ellipsis">
-      NETCDF
+      GRIB/GRIB2
     </span>
   </a>
   
@@ -1757,6 +1694,26 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../Useful_links/links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful links
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../contact/" class="md-nav__link">
         
   
@@ -1815,9 +1772,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#netcdf" class="md-nav__link">
+  <a href="#gribgrib2" class="md-nav__link">
     <span class="md-ellipsis">
-      NETCDF
+      GRIB/GRIB2
     </span>
   </a>
   
@@ -1842,20 +1799,19 @@
 <h2 id="introduction">Introduction</h2>
 <p>The HARMONIE system reads and writes a number of different formats. </p>
 <h2 id="fa-files">FA files</h2>
-<p>Default internal format input/output for HARMONIE for gridpoint, spectral and SURFEX data. GRIB is used as a way to pack data, but the grib record cannot be used as such.</p>
+<p>Default internal format input/output for gridpoint, spectral and SURFEX data. GRIB is used as a way to pack data, but the grib record cannot be used as such.</p>
 <ul>
 <li>The header contains information about model domain, projection, spectral truncation, extension zone, boundary zone, vertical levels. </li>
 <li>Only one date/time per file.</li>
 <li>FA routines are found under <code>ifsaux/fa</code></li>
-<li>List or convert a file with <a href="@ref gl"><code>gl</code></a></li>
+<li>List or convert a file with <a href="../../../Tools/Gl/gl/">Gl</a></li>
 <li>Other listing tool <a href="http://www.cnrm.meteo.fr/gmapdoc/spip.php?page=recherche&amp;recherche=PINUTS">PINUTS</a></li>
 </ul>
 <p><a href="http://www.cnrm.meteo.fr/gmapdoc/spip.php?page=recherche&amp;recherche=FA+">Read more</a></p>
-<h2 id="netcdf">NETCDF</h2>
-<p>In climate mode all FA files may converted to NETCDF after the forecast run. For the conversion between FA names and NETCDF parameters check <code>util/gl/inc/nc_tab.h</code>.</p>
+<h2 id="gribgrib2">GRIB/GRIB2</h2>
+<p>All FA files may be converted to GRIB after the forecast run. For the conversion between FA names and GRIB parameters check <a href="https://hirlam.github.io/HarmonieSystemDocumentation/dev/ForecastModel/Outputlist/">this link</a>.</p>
 <ul>
-<li>For the manipulation and listing of NETCDF files we refer to standard NETCDF tools.</li>
-<li>NETCDF is also used as output data from some SURFEX tools.</li>
+<li>List or convert a GRIB file with <a href="../../../Tools/Gl/gl/">Gl</a></li>
 </ul>
 
 
