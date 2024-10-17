@@ -1,35 +1,4 @@
-CLIMAKE system
-
-------------------------------------------------------------------
-
-CHANGELOG:
-
-20190206 VERSION 1.0 : initial commit
-20190321 VERSION 1.1 : more permissive on NDLON/NDGLG 
-20190321 VERSION 1.11 : BUG NDLON/NDGLG inversion form NMSMAX/NSMAX calculation 
-20190322 VERSION 1.12 : modified NDLON/NDGLG checks (must be multiple of 2, 3 or 5 at least) 
-20190322 VERSION 1.13 : add ability to chose NSMAX/NMSMAX manually 
-20190325 VERSION 1.14 : NSMAX/NMSMAX auto calculation changed 
-20190326 VERSION 1.15 : NAMGEM bloc missing in generic 923 namelist and REDME improve
-20190327 VERSION 1.16 : allow relative and absolute path for custom pgd and clim namelists
-20190409 VERSION 1.17 : bugfix for 923 step_6 
-20190411 VERSION 1.18 : higher resolution GMTED2010 input orography database  
-20190529 VERSION 1.19 : bug in climake for auto calculation for quadratic domain  
-20190702 VERSION 1.20 : Add version control system and update default genv to cy43t2_clim-op2.02
-20190711 VERSION 1.21 : Add config file mode 
-20190717 VERSION 1.22 : RSTR = 0 for one Orography step (SURFRESERV.NEIGE threshold) 
-20190719 VERSION 1.23 : CLIMAKE INTERFACE 
-20190721 VERSION 1.24 : CLIMAKE INTERFACE modifs and README UPDATE 
-20191121 VERSION 1.25 : EpyGram modif 
-20200317 VERSION 1.26 : small bf in script 3_923 
-20200317 VERSION 1.27 : save of listings
-20201014 VERSION 1.28 : new script 'postpromake'. It works like 'climake' and is aimed to produce lat/lon postprocessing clim files.
-20201016 VERSION 1.29 : bf in postpromake reg exp to allow negative lon and lat
-20201020 VERSION 1.30 : new mode in postpromake: allow you to use directly PGD and 923 geometry files and skip the epygram domain maker automatic calculation step
-20210209 VERSION 1.31 : moving on belenos
-20210218 VERSION 1.32 : use new genv cycle with belenos compatible
-20210323 VERSION 1.33 : epygram on belenos has different behaviour
-
+### CliMake
 
 ------------------------------------------------------------------
 
@@ -45,13 +14,13 @@ florian.suzat@meteo.fr
 
 ------------------------------------------------------------------
 
-To use this script, please follow the following steps:
+To use this script, you need access to MF machine then please follow the following steps:
 
 _ clone the CLIMAKE directory. From supercomputer 'beaufix', go to the directory where you want CLIMAKE 
 script system launch the command:
-
+```bash
 '~suzat/SAVE/cloneClimake'
-
+```
 This directory contains:
  * this README file
  * a directory 'geometries' containing only the geometry related namelist blocks for each domain 
@@ -72,9 +41,9 @@ GENV (GCO) CYCLE:
 First of all, you have to choose what we call a GENV cycle.
 It's a tag corresponding to a version of the set of files needed for the PGD/923 configuration.
 To know the last cycle ( the more recent ) you can launch on supercomputer the command
- 
+ ```bash
 '/home/mf/dp/marp/martinezs/public/bin/genv oper-clim'  ---> corresponding to the operational suite
-
+```
 For cy43 the official GENV cycle is 'cy43t2_clim-op2.02'
 
 This command will give you a list of key/value.
@@ -82,16 +51,21 @@ The CYCLE can be read after the key 'CYCLE_NAME'.
 It contains all the resources useful for the clim configuration (input files, namelists, binaries, etc...).
 
 For instance, to get the HWSD_SAND database associated to the GENV cycle cy43t2_clim-op1.01, just call:
+```bash
 '/home/mf/dp/marp/martinezs/public/bin/gget hwsd.sand_v2.01.tgz'
+```
 to get the ECOCLIMAP_COVERS_PARAM call:
+```bash
 '/home/mf/dp/marp/martinezs/public/bin/gget ecoclimap.covers.param.05.tgz'
+```
 etc...
 This mecanism avoid to set in the script hard coded links to files, and historisation 
 (because GENV/GGET check the checksums of files, and ensure they will not be modified)
 
 If you don't know what CYCLE to choose, you can use the last operational suite given by 
+```bash
 '/home/mf/dp/marp/martinezs/public/bin/genv oper-clim'
-
+```
 here is a list of old genv cycles related to clims...
 2017/03/09	cy42_clim-op2.01 
 2016/11/08	al41t1_clim-op2.02
@@ -133,11 +107,15 @@ The behaviour for orography steps depends of what you give in arguments on 'clim
 LAUNCH
 
 since Version 1.21 CLIMAKE can be launched in 2 modes : with config file or interactively
-* in the first case the command is
+* in the first case the command is :
+```bash
     ./climake -c config_file
+```
 you can edit the file config_example.conf to create the file you need
 * you can either launch CLIMAKE with -i option
+```bash    
     ./climake -i
+```
 you will be prompted for the various options to choose...
 
 This will use PGD and MASTER binary from the GENV cycle
@@ -165,7 +143,7 @@ _all the input files needed
 _all the listings of each step (called listing.step_XXX)
 _clim and pgd being constructed
 Each step in run in independents directory (build_pgd, orography, finalize_orography, const_physiography,...)
-IMPORTANT: to save space in the $HOME directory, the WORKDIR is located in a directory that will be cleaned automatically.
+IMPORTANT: to save space in the HOME directory, the WORKDIR is located in a directory that will be cleaned automatically.
 If you want to keep it available you must save this $WORKDIR (by tar-gziping it and achiving it on Hendrix for example).
 
 Files will finally be produced in the $OUTPUTDIR directory.
@@ -181,14 +159,21 @@ POSTPROMAKE
 
 Postpromake work as climake. There is 2 interactive mode -f (file mode) and -a (automatic mode) and 1 config file mode -c as climake.
 -a and -f mode are available with option -c.
-See examples
-./postpromake -c postpromake_config_filemode_example.conf for file mode (you need to specify geometry namelist delta)
-./postpromake -c postpromake_config_auto_example.conf for automatic mode (you need to specify inputs then epygram will calculate for you the geometries namelistsa)
+See examples :
 
-iIn automatic mode, postpromake takes as input:
+for file mode (you need to specify geometry namelist delta)
+```bash
+./postpromake -c postpromake_config_filemode_example.conf 
+```
+
+for automatic mode (you need to specify inputs then epygram will calculate for you the geometries namelistsa)
+```bash
+./postpromake -c postpromake_config_auto_example.conf 
+```
+In automatic mode, postpromake takes as input:
 _ the resolution in degree of the grid 
 _ the bounds of the lat lon square
-
+```bash
              lonmin,latmin (ELON1,ELAT1)                           lonmax,latmin (ELON2,ELAT1)
                        x --------------------------------------------------- x
                        |                                                     |
@@ -199,7 +184,7 @@ _ the bounds of the lat lon square
                        |                                                     |
                        x --------------------------------------------------- x
              lonmin,latmax (ELON1,ELAT2)                           lonmax,latmax (ELON2,ELAT2)
-
+```
 the program will calculate and generate the geometry files (as GMAP do in Olive) : it uses vortex and epygram, 2 python GMAP toolbox.
 These calculations are done in the step 1 (after the genv file prefetching)
 _ then postpromake uses the same scripts as climake. There is only one orography step and no spectral at all (thats why there is a specific namelist delta inside "stuff" directory)

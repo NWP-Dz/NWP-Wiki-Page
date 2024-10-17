@@ -48,7 +48,7 @@ nav:
       - RESTOR: Tools/RESTOR/restor.md
       - Gl: Tools/Gl/gl.md
       - Pinuts: Tools/Pinuts/pinuts.md
-      - ClimMake: Tools/ClimMake/climmake.md
+      - CliMake: Tools/CliMake/climake.md
       - Visualization:
           - EpyGram: Tools/Visualization/EPyGrAM.md
           - Grads: Tools/Visualization/grads.md

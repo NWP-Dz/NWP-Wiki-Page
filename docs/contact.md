@@ -12,35 +12,46 @@
 
 ---
 
-### Imad Eddine Helali (Physics)
+### Imad Eddine Helali
 **GitHub:** [imadhelali](https://github.com/imadhelali)
 
 ---
 
-### Nour El Islam Kerroumi (Surface/Restor/Cycles)
+### Nour El Islam Kerroumi
 **GitHub:** [KERROUMI](https://github.com/KERROUMI)
 
 ---
 
-### Issam Lagha (DataAssimilation)
+### Issam Lagha
 **GitHub:** [issamlagha](https://github.com/issamlagha)
 
 ---
 
-### Amine Khedim (WaveWatch III)
+### Amine Khedim
 **GitHub:** [aminekhedim](https://github.com/aminekhedim)
 
 ---
 
-### Mohand Ait Meziane (DataAssimilation)
+### Mohand Ait Meziane
 **GitHub:** [aitmezianeMO](https://github.com/aitmezianeMO)
 
 ---
 
-### Nadia Aber (Control & Verification)
+### Bahlouli Abdelhake
+**GitHub:** []()
+
+---
+
+### Sofiane Kameche
+**GitHub:** [KamecheMohamedSofiane](https://github.com/KamecheMohamedSofiane)
+
+---
+
+### Nadia Aber
 **GitHub:** [Nadiaaber](https://github.com/Nadiaaber)
 
 ---
 
-### Chahrazed Bouzerma (DataAssimilation/Restor)
+### Chahrazed Bouzerma
 **GitHub:** [cbouzerma](https://github.com/cbouzerma)
+
