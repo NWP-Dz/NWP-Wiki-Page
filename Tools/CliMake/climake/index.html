@@ -22,7 +22,7 @@
     
     
       
-        <title>ClimMake - ONM-NWP Wiki Page</title>
+        <title>CliMake - ONM-NWP Wiki Page</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#this-section-is-under-construction" class="md-skip">
+        <a href="#climake" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ClimMake
+              CliMake
             
           </span>
         </div>
@@ -1500,18 +1500,53 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CliMake
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    ClimMake
+    CliMake
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#climake" class="md-nav__link">
+    <span class="md-ellipsis">
+      CliMake
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1687,8 +1722,23 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#climake" class="md-nav__link">
+    <span class="md-ellipsis">
+      CliMake
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1703,10 +1753,157 @@
                   
 
 
-<h1 id="this-section-is-under-construction">This Section is Under Construction 🚧</h1>
-<p>We are currently working on this section. Please check back later for updates!</p>
-<p><img alt="Under Construction" src="https://via.placeholder.com/600x300?text=Under+Construction" /></p>
-<p>Thank you for your patience.</p>
+  <h1>CliMake</h1>
+
+<h3 id="climake">CliMake</h3>
+<hr />
+<p>The goal of this package is to provide a simple, flexible and efficient set of files and scripts 
+in order to make PGD and clim files in various domains.
+It's a modernization of Françoise Taillefer base scripts, using the GENV/GGET GCO tools. </p>
+<p>Credits to:
+Suzana Panezics, Alexandre Mary, Florian Suzat</p>
+<p>If you have any problem, question or proposition please contact
+florian.suzat@meteo.fr  </p>
+<hr />
+<p>To use this script, you need access to MF machine then please follow the following steps:</p>
+<p>_ clone the CLIMAKE directory. From supercomputer 'beaufix', go to the directory where you want CLIMAKE 
+script system launch the command:</p>
+<pre><code class="language-bash">'~suzat/SAVE/cloneClimake'
+</code></pre>
+<p>This directory contains:
+ * this README file
+ * a directory 'geometries' containing only the geometry related namelist blocks for each domain 
+ (both for PGD and 923). 
+ You can create your own file there, but also you can send us those files so that we can archive it. 
+ * a directory 'namelists' containing the PGD and 923 namelists files. Some examples are given.
+ Geometry related information have been removed from thoses files.
+ * a directory 'scripts' containing the various scripts files needed for this configuration.
+Normally, you should not need to edit them, but if you know what you are doing, you can!
+There are ordered in 4 steps, as they are named. 
+ * the 'climake' main script that take arguments, make some controls and launch the process. 
+ * the 'postpromake' script that works like 'climake', to do lat/lon postprocessing clim files</p>
+<hr />
+<p>GENV (GCO) CYCLE:</p>
+<p>First of all, you have to choose what we call a GENV cycle.
+It's a tag corresponding to a version of the set of files needed for the PGD/923 configuration.
+To know the last cycle ( the more recent ) you can launch on supercomputer the command
+ ```bash
+'/home/mf/dp/marp/martinezs/public/bin/genv oper-clim'  ---&gt; corresponding to the operational suite</p>
+<pre><code>For cy43 the official GENV cycle is 'cy43t2_clim-op2.02'
+
+This command will give you a list of key/value.
+The CYCLE can be read after the key 'CYCLE_NAME'.
+It contains all the resources useful for the clim configuration (input files, namelists, binaries, etc...).
+
+For instance, to get the HWSD_SAND database associated to the GENV cycle cy43t2_clim-op1.01, just call:
+```bash
+'/home/mf/dp/marp/martinezs/public/bin/gget hwsd.sand_v2.01.tgz'
+</code></pre>
+<p>to get the ECOCLIMAP_COVERS_PARAM call:</p>
+<pre><code class="language-bash">'/home/mf/dp/marp/martinezs/public/bin/gget ecoclimap.covers.param.05.tgz'
+</code></pre>
+<p>etc...
+This mecanism avoid to set in the script hard coded links to files, and historisation 
+(because GENV/GGET check the checksums of files, and ensure they will not be modified)</p>
+<p>If you don't know what CYCLE to choose, you can use the last operational suite given by </p>
+<pre><code class="language-bash">'/home/mf/dp/marp/martinezs/public/bin/genv oper-clim'
+</code></pre>
+<p>here is a list of old genv cycles related to clims...
+2017/03/09  cy42_clim-op2.01 
+2016/11/08  al41t1_clim-op2.02
+2016/11/08  al42_clim-op2.01
+2016/05/03  al41t1_clim-op2.01
+2015/09/23  al41t1_clim-op1.03
+2015/08/27  al41t1_clim-op1.01
+2015/06/10  al40_clim-op2.04
+2015/06/02  al40_clim-op2.03
+2015/01/14  al38t1_clim-op3.01
+2014/09/29  al40_clim-op1.05
+2014/09/22  al40_clim-op1.04
+2014/07/31  al40_clim-op1.03
+2014/07/09  al40_clim-op1.02
+2014/07/09  al38t1_clim-op2.02
+2014/04/07  al40_clim-op1.01
+2014/04/07  cy40_clim-op1.01
+2013/09/16  al38t1_clim-op2.01
+to find that you can go to http://gco.meteo.fr/   --&gt; history of cycle put in date field '201*' then update and grep with ctrl +f 'clim'</p>
+<hr />
+<p>GEOMETRY:</p>
+<p>They you have to choose 2 geometry namelists (one for the PGD, one for the 923) 
+either among the existing ones on 'geometries' directory or created by you 
+(let us know if you want that we archive it).</p>
+<p>In 923, there is two possibility: 
+ - orography computed in 2 steps  (normal clim configuration)
+ - orography computed in one step (for example for TELECOM domains)</p>
+<p>The behaviour for orography steps depends of what you give in arguments on 'climake' command line or config files.</p>
+<hr />
+<p>LAUNCH</p>
+<p>since Version 1.21 CLIMAKE can be launched in 2 modes : with config file or interactively
+* in the first case the command is :</p>
+<pre><code class="language-bash">    ./climake -c config_file
+</code></pre>
+<p>you can edit the file config_example.conf to create the file you need
+* you can either launch CLIMAKE with -i option</p>
+<pre><code class="language-bash">    ./climake -i
+</code></pre>
+<p>you will be prompted for the various options to choose...</p>
+<p>This will use PGD and MASTER binary from the GENV cycle</p>
+<p>But
+* You can use your own PGD (resp. MASTER) binary by setting environment variable CUSTOM_PGD (resp. CUSTOM_MASTER)
+* You can use a custom PGD namelist by replacing the first  'GCO' argument by a path to a namelist
+(without geometry relateds block). You can start from ./namelist/PGD/GENERIC.nam which is the standard PGD cy43t2 namelist</p>
+<ul>
+<li>You can use a custom 923 namelist by replacing the second 'GCO' argument by a path to a namelist
+(without geometry relateds block). You can start from ./namelist/923/GENERIC.nam which is the standard 923 cy43t2 namelist</li>
+</ul>
+<p>Climake will do some check and some pre calculations.
+You can choose an automatic calculation of NSMAX/NMSMAX from NDGLG and NDLON or manual fixing of thoses values.
+Before starting the job, climake will produce a sort a short summary, that you have to confirm.</p>
+<hr />
+<p>RESULTS</p>
+<p>Return listings of the scripts will arrive into the CLIMAKE directory.
+You can get the working directory in those return listings (by greping Workdir).
+You can visit this workdir to show in real time what is happening.
+In the workdir you will find
+_all the input files needed
+_all the listings of each step (called listing.step_XXX)
+_clim and pgd being constructed
+Each step in run in independents directory (build_pgd, orography, finalize_orography, const_physiography,...)
+IMPORTANT: to save space in the HOME directory, the WORKDIR is located in a directory that will be cleaned automatically.
+If you want to keep it available you must save this $WORKDIR (by tar-gziping it and achiving it on Hendrix for example).</p>
+<p>Files will finally be produced in the $OUTPUTDIR directory.
+An extra step producing a html report page, and the plots (every fields of every files) will be produced in this directory.</p>
+<p>This last step also rewrite the SUFGEOPOTENTIAL field of the clim inside the PGD SFX.ZS field.</p>
+<p>HAPPY CLIMAKING!</p>
+<hr />
+<p>POSTPROMAKE </p>
+<p>Postpromake work as climake. There is 2 interactive mode -f (file mode) and -a (automatic mode) and 1 config file mode -c as climake.
+-a and -f mode are available with option -c.
+See examples :</p>
+<p>for file mode (you need to specify geometry namelist delta)</p>
+<pre><code class="language-bash">./postpromake -c postpromake_config_filemode_example.conf 
+</code></pre>
+<p>for automatic mode (you need to specify inputs then epygram will calculate for you the geometries namelistsa)</p>
+<pre><code class="language-bash">./postpromake -c postpromake_config_auto_example.conf 
+</code></pre>
+<p>In automatic mode, postpromake takes as input:
+_ the resolution in degree of the grid 
+_ the bounds of the lat lon square</p>
+<pre><code class="language-bash">             lonmin,latmin (ELON1,ELAT1)                           lonmax,latmin (ELON2,ELAT1)
+                       x --------------------------------------------------- x
+                       |                                                     |
+                       |                                                     |
+                       |                                                     |
+                       |                                                     |
+                       |                                                     |
+                       |                                                     |
+                       x --------------------------------------------------- x
+             lonmin,latmax (ELON1,ELAT2)                           lonmax,latmax (ELON2,ELAT2)
+</code></pre>
+<p>the program will calculate and generate the geometry files (as GMAP do in Olive) : it uses vortex and epygram, 2 python GMAP toolbox.
+These calculations are done in the step 1 (after the genv file prefetching)
+_ then postpromake uses the same scripts as climake. There is only one orography step and no spectral at all (thats why there is a specific namelist delta inside "stuff" directory)</p>
+<p>For the moment epygram is not able to handle lat/lon geometries that have different resolutions in Lat and Lon... It may be available soon....</p>
 
 
 

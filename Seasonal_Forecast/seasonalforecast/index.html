@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#this-section-is-under-construction" class="md-skip">
+        <a href="#seasonal-forecast" class="md-skip">
           Skip to content
         </a>
       
@@ -1383,6 +1383,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Seasonal Forecast
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1392,6 +1403,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operational-machines-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Machines Used:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arpege-climat-numerical-forecast-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARPEGE CLIMAT Numerical Forecast Chain
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing-hindcast-and-forecast-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Hindcast and Forecast Files:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1502,11 +1568,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Tools/ClimMake/climmake/" class="md-nav__link">
+      <a href="../../Tools/CliMake/climake/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    ClimMake
+    CliMake
   </span>
   
 
@@ -1688,6 +1754,50 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operational-machines-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Machines Used:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arpege-climat-numerical-forecast-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      ARPEGE CLIMAT Numerical Forecast Chain
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processing-hindcast-and-forecast-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processing Hindcast and Forecast Files:
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1701,10 +1811,123 @@
                   
 
 
-<h1 id="this-section-is-under-construction">This Section is Under Construction 🚧</h1>
-<p>We are currently working on this section. Please check back later for updates!</p>
-<p><img alt="Under Construction" src="https://via.placeholder.com/600x300?text=Under+Construction" /></p>
-<p>Thank you for your patience.</p>
+<h1 id="seasonal-forecast">Seasonal Forecast</h1>
+<hr />
+<h3 id="introduction">Introduction</h3>
+<p>The ARPEGE model is a global spectral general circulation model developed by Météo-France in collaboration with the ECMWF for numerical weather prediction. Its climate version, ARPEGE-Climat, was introduced in the 1990s (Déqué et al., 1994). Over time, it has become the atmospheric component of the CNRM's Earth system model, integrating the atmosphere, ocean, vegetation, and sea ice (Salas y Melia et al., 2005). ARPEGE's grid can be adjusted to shift the pole position and zoom into regions of interest, enabling regional climate studies (Déqué and Piedelievre, 1995; Gibelin and Déqué, 2003). For instance, the "Medias" version of ARPEGE-Climat v4 focuses on the Europe-Mediterranean-North Africa region, with a pole in the Tyrrhenian Sea, a stretching factor of 2.5, and a resolution of about 50 km.</p>
+<hr />
+<h3 id="operational-machines-used">Operational Machines Used:</h3>
+<ol>
+<li><strong>passerellemf (IP: passerellemf.meteo.dz)</strong>: This serves as a gateway between users (machines) of the PNT and the systems of Météo-France.</li>
+<li><strong>Belenos</strong>: A supercomputer at Météo-France where outputs from the Arpège-Climat model are stored.</li>
+<li><strong>fennec (ONM's supercomputer) (IP: login2.fennec.meteo.dz)</strong>: This machine runs models such as ALADIN, AROME, ALADIN DUST, ALADIN CLIMAT, and ARPEGE CLIMAT, along with programs that prepare products for clients.</li>
+<li><strong>Local machine</strong>: A virtual machine created for analysis, processing, and visualization of Arpège-Climat outputs. It is equipped with numerous Python packages useful for mathematics, statistics, and data science.</li>
+</ol>
+<hr />
+<h3 id="arpege-climat-numerical-forecast-chain">ARPEGE CLIMAT Numerical Forecast Chain</h3>
+<p><strong>Step 1: Preparation of Files on Belenos</strong></p>
+<p>To connect to the Météo-France supercomputer, Belenos, we use the <code>passerellemf</code> machine, which is the only gateway authorized by Météo-France for server access.</p>
+<p><strong>Scripts to Execute on passerellemf to Access Belenos:</strong></p>
+<pre><code class="language-bash"> ${HOME}/Belenos
+</code></pre>
+<p><strong>File Information:</strong></p>
+<p>Currently, we utilize five meteorological parameters for the seasonal forecast bulletin. To prepare the required outputs for this bulletin, we need to retrieve the first member of the Hindcast (1993-2016), which serves as a climatological reference for calculating anomalies, along with the 50 members of the Forecast to assess probabilities.</p>
+<p><strong>Example of File Names to Retrieve for the Base Month of September 2020:</strong> </p>
+<table>
+<thead>
+<tr>
+<th>Hindcast (First member of 1993)</th>
+<th>Forecast (the 51 member)</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H1993I001_arpsfx_6hourly_tas_1993-1994.nc</td>
+<td>F2020I051_arpsfx_6hourly_tas_2020-2021.nc</td>
+<td>Average temperature</td>
+</tr>
+<tr>
+<td>H1993I001_arpsfx_6hourly_tasmax_1993-1994.nc</td>
+<td>F2020I051_arpsfx_6hourly_tasmax_2020-2021.nc</td>
+<td>Maximum temperature</td>
+</tr>
+<tr>
+<td>H1993I001_arpsfx_6hourly_tasmin_1993-1994.nc</td>
+<td>F2020I051_arpsfx_6hourly_tasmin_2020-2021.nc</td>
+<td>Minimum temperature</td>
+</tr>
+<tr>
+<td>H1993I001_arpsfx_6hourly_lwepr_1993-1994.nc</td>
+<td>F2020I051_arpsfx_6hourly_lwepr_2020-2021.nc</td>
+<td>Precipitation</td>
+</tr>
+<tr>
+<td>H1993I001_arpsfx_6hourly_psl_1993-1994.nc</td>
+<td>F2020I051_arpsfx_6hourly_psl_2020-2021.nc</td>
+<td>Sea level pressure</td>
+</tr>
+</tbody>
+</table>
+<p>File description :</p>
+<table>
+<thead>
+<tr>
+<th>H1993I001_arpsfx_6hourly_tas_1993-1994.nc</th>
+<th>F2020I051_arpsfx_daily_lwepr_2020-2021.nc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H</strong>: Hindcast, 1993: First year of the hindcast, <strong>I</strong>: Base month September (09), <strong>001</strong>: First member, <strong>Arpsfx</strong>: ARPEGE-SURFEX, <strong>6hourly</strong>: One value every 6 hours (4 per day), <strong>tas</strong>: Average temperature, <strong>1993-1994</strong>: 7 months from September 1993 to March 1994, <strong>.nc</strong>: NetCDF file format.</td>
+<td><strong>F</strong>: Forecast, <strong>2020</strong>: Year of the forecast, <strong>I</strong>: Base month September (09), <strong>051</strong>: 51 member, <strong>Arpsfx</strong>: ARPEGE-SURFEX, <strong>daily</strong>: One value per day (1 per day), <strong>lwepr</strong>: Cumulative precipitation, <strong>2020-2021</strong>: 7 months from September 2020 to March 2021, <strong>.nc</strong>: NetCDF file format.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>The scripts for preparing the hindcast and forecast files on the Belenos machine, which are located in Mr. Mokhtari's account, are <code>Get_Data_Hindcast.sh</code> and <code>Get_Data_Forecast.sh</code>, respectively. </p>
+<p>These two scripts can be found at the following paths:</p>
+<pre><code class="language-bash">- `$HOME/STAGE2018/ALADIN_CLIMAT/GetData/ARPEGE_CLIMAT/Get_Data_Hindcast.sh`
+- `$HOME/STAGE2018/ALADIN_CLIMAT/GetData/ARPEGE_CLIMAT/Get_Data_Forecast.sh`
+</code></pre>
+<hr />
+<p><strong>Downloading Files from Météo France:</strong></p>
+<p>The download of these prepared files from Belenos is done on the passerellemf machine. The script that facilitates this task is <code>Get_Data_ARPEGE.sh</code>.</p>
+<pre><code class="language-bash">► $HOME/Get_Data_ARPEGE.sh
+</code></pre>
+<hr />
+<p><strong>Processing Files and Calculating Anomalies and Probabilities:</strong>
+The processing of ARPEGE-Climat files and the calculation of anomalies are performed on our supercomputer (Fennec machine). The scripts that facilitate this task are: <code>Ghreadnc.sh</code>, <code>Ghreadnc_tas.sh</code>, <code>Ghreadnc_psl.sh</code>, <code>Gfreadnc.sh</code>, <code>Gfreadnc_tas.sh</code>, <code>Gfreadnc_mslp.sh</code>, <code>compile</code>, <code>anomaly.exe</code>, <code>anomaly_mslp.exe</code> and <code>anomaly_tas.exe</code>.</p>
+<h3 id="processing-hindcast-and-forecast-files"><strong>Processing Hindcast and Forecast Files:</strong></h3>
+<p><strong>For the hindcast:</strong></p>
+<pre><code class="language-bash">- `$HOME/ALADIN_CLIMAT/ARPEGE/Ghreadnc.sh`
+- `$HOME/ALADIN_CLIMAT/ARPEGE/Ghreadnc_tas.sh`
+- `$HOME/ALADIN_CLIMAT/ARPEGE/Ghreadnc_psl.sh`
+</code></pre>
+<p>The outputs for minimum and maximum temperatures and precipitation are at a daily frequency and are processed by the <code>Ghreadnc.sh</code> script. In contrast, the temperatures at two meters are at a frequency of 6 hours and are processed by the <code>Ghreadnc_tas.sh</code> script.</p>
+<p><strong>For the Forecast:</strong></p>
+<pre><code class="language-bash">- `$HOME/ALADIN_CLIMAT/ARPEGE/Gfreadnc.sh`
+- `$HOME/ALADIN_CLIMAT/ARPEGE/Gfreadnc_tas.sh`
+- `$HOME/ALADIN_CLIMAT/ARPEGE/Gfreadnc_mslp.sh`
+</code></pre>
+<p><strong>Calculating Anomalies and Probabilities:</strong></p>
+<pre><code class="language-bash">- `$HOME/ALADIN_CLIMAT/ARPEGE/tools/compile`
+- `$HOME/ALADIN_CLIMAT/ARPEGE/tools/anomaly.exe`
+- `$HOME/ALADIN_CLIMAT/ARPEGE/tools/anomaly_tas.exe`
+- `$HOME/ALADIN_CLIMAT/ARPEGE/tools/anomaly_mslp.exe`
+</code></pre>
+<p><strong>Plotting Maps with Python:</strong></p>
+<p>The map plotting is done using python3 . The script used for this task is:</p>
+<pre><code class="language-bash">► Carte_Oper.sh → $HOME/ARPEGE_CLIMAT
+</code></pre>
+<p>After executing this script, the output files in PNG format are generated and stored in a folder named as follows:<br />
+<strong>Carte_ARPEGE_CLIMAT_BM09_2020</strong> (where <strong>BM09_2020</strong> refers to the base month of September 2020).<br />
+These files can be found at the following path:  </p>
+<pre><code class="language-bash">$HOME/ARPEGE_CLIMAT/cartes
+</code></pre>
+<p><strong>Plot example</strong></p>
+<p><img alt="TCLS" src="../images/tcls.png" /></p>
+<p>For more detailed informations contact <a href="https://github.com/walidchikhi">Walid Chikhi</a> to give you the manuel of the seasonal forecast.</p>
 
 
 
